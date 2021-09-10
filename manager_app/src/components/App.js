@@ -4,12 +4,12 @@ import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 
-function App() {
+const App = () => {
   return (
     <div >
       <Header />
       <AddContact />
-      <ContactList />
+      {/* <ContactList /> */}
     </div>
   );
 }
