@@ -5,11 +5,23 @@ import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 
 const App = () => {
+  const contacts = [
+    {
+      id: "1",
+      name: "Phil",
+      email: "philsander@gmail.com",
+    },
+    {
+      id: "2",
+      name: "Jeremy",
+      email: "Jbear@gmail.com"
+    }
+  ];
   return (
-    <div >
+    <div className="ui container" >
       <Header />
       <AddContact />
-      {/* <ContactList /> */}
+      <ContactList contacts={contacts} />
     </div>
   );
 }
