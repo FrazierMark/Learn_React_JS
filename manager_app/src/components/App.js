@@ -43,13 +43,24 @@ const App = () => {
       <Router> 
         <Header />
         <Switch> 
-          <Route path="/" exact component={ContactList}/>
-          <Route path="/add" component={AddContact}/>
-          
+          <Route path="/" 
+          exact 
+          render={(props) => (
+            <ContactList 
+              {...props} 
+              contacts={contacts} 
+              getContactId={removeContactHandler}  />
+          )}/>
+            
+            
+          <Route path="/add" 
+          render={(props) => (
+            <AddContact {...props} addContactHandler={addContactHandler}/>
+            )}
+          /> 
+
         </Switch>
         
-        {/* <AddContact addContactHandler={addContactHandler} />
-        <ContactList contacts={contacts} getContactId={removeContactHandler}  /> */}
       </Router>
     </div>
   );

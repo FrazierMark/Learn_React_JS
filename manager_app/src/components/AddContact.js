@@ -20,7 +20,8 @@ const AddContact = (props) => {
         }
             props.addContactHandler(values);
             setValues({name: "", email: ""});
-            e.target.reset()
+            e.target.reset();
+            props.history.push("/");
     };
 
     return (
