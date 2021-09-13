@@ -5,6 +5,8 @@ import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import { uuid } from "uuidv4";
+import ContactDetail from "./ContactDetail";
+
 
 const App = () => {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -58,6 +60,8 @@ const App = () => {
             <AddContact {...props} addContactHandler={addContactHandler}/>
             )}
           /> 
+
+          <Route path="/contact/:id" component={ContactDetail} />
 
         </Switch>
         

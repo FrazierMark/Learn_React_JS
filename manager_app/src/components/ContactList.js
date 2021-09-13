@@ -1,6 +1,7 @@
 import React from "react"
 import ContactCard from "./ContactCard"
 import { Link } from "react-router-dom";
+import {Button} from "semantic-ui-react"
 
 
 const ContactList = (props) => {
@@ -24,7 +25,7 @@ const ContactList = (props) => {
         <div className="main">
             <h2> Contact List
                 <Link to="/add">
-                    <button className="ui button blue right">Add Contact</button>
+                    <Button className="ui button blue" floated='right'>Add Contact</Button>
                 </Link>
             </h2>
             
