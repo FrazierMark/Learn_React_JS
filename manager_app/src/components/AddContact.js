@@ -1,4 +1,3 @@
-import { applyProps } from "@react-three/fiber";
 import React, {useState} from "react"
 
 const AddContact = (props) => {
@@ -15,16 +14,14 @@ const AddContact = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(values.name === "" && values.email=== "") {
+        if(values.name === "" || values.email=== "") {
             alert("All fields are mandatory!")
-            return
+            return;
         }
-            props.addContactHandler(values)
-        console.log(values)
-
-    }
-
-
+            props.addContactHandler(values);
+            setValues({name: "", email: ""});
+            e.target.reset()
+    };
 
     return (
         <div className="ui main">
