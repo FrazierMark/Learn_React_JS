@@ -25,7 +25,7 @@ const AddContact = (props) => {
 
     return (
         <div className="ui main">
-            <h1>Add Contact</h1>
+            
             <h1>Add Contact</h1>
             <form className="ui form" onSubmit={handleSubmit}> 
                 <div className="field">
