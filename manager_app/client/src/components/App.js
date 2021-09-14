@@ -7,6 +7,7 @@ import ContactList from "./ContactList";
 import { uuid, v4 } from "uuidv4";
 import ContactDetail from "./ContactDetail";
 import api from "../api/contacts"
+import EditContact from "./EditContact";
 
 
 const App = () => {
@@ -33,6 +34,16 @@ const App = () => {
 
       setContacts([...contacts, response.data])
   }
+
+  const updateContactHandler = async (contact) => {
+    const response = await api.put(`/contacts/${contact.id}`, contact)
+    
+    const {id, name, email} = response.data
+    setContacts(contacts.map((contact) => {
+      return contact.id === id ? {...response.data} : contact;
+      })
+    );
+  };
 
     // Overwrites existing contactList, without the deleted contact
     // creates new contact list,
@@ -82,6 +93,12 @@ const App = () => {
           <Route path="/add" 
           render={(props) => (
             <AddContact {...props} addContactHandler={addContactHandler}/>
+            )}
+          /> 
+
+          <Route path="/edit" 
+          render={(props) => (
+            <EditContact {...props} updateContactHandler={updateContactHandler}/>
             )}
           /> 
 
