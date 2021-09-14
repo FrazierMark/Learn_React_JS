@@ -6,6 +6,7 @@ import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import { uuid } from "uuidv4";
 import ContactDetail from "./ContactDetail";
+import api from "../api/contacts"
 
 
 const App = () => {
@@ -31,8 +32,8 @@ const App = () => {
 
   // Grabs any contacts saved in local storage AND sets them in state
   useEffect(() => {
-    const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if(retrieveContacts) setContacts(retrieveContacts)
+    // const retrieveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    // if(retrieveContacts) setContacts(retrieveContacts)
   }, []);
 
   // Takes contact submission and saves it in local storage
