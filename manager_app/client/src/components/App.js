@@ -8,11 +8,14 @@ import { uuid, v4 } from "uuidv4";
 import ContactDetail from "./ContactDetail";
 import api from "../api/contacts"
 import EditContact from "./EditContact";
+import { SearchResults } from "semantic-ui-react";
 
 
 const App = () => {
   const LOCAL_STORAGE_KEY = "contacts";
-  const [contacts, setContacts] = useState([])
+  const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   // RetrieveCOntacts
   const retrieveContacts = async () => {
@@ -57,6 +60,20 @@ const App = () => {
     setContacts(newContactList);
   }
 
+    const searchHandler = (searchTerm) => {
+      setSearchTerm(searchTerm);
+      if(searchTerm !== "") {
+        const newContactList = contacts.filter((contact) => {
+          return Object.values(contact)
+            .join(" ")
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase());
+        });
+        setSearchResults(newContactList);
+      } else {
+        setSearchResults(contacts)
+      }
+    };
 
   // Grabs any contacts saved in local storage AND sets them in state
   useEffect(() => {
@@ -85,8 +102,10 @@ const App = () => {
           render={(props) => (
             <ContactList 
               {...props} 
-              contacts={contacts} 
-              getContactId={removeContactHandler}  />
+              contacts={ searchTerm.length < 1 ? contacts : searchResults} 
+              getContactId={removeContactHandler}
+              term={searchTerm}
+              searchKeyword={searchHandler}  />
           )}/>
             
             
