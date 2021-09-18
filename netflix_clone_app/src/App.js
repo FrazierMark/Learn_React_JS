@@ -1,6 +1,6 @@
 import './App.css';
 import Row from './components/Row'
-import requests from './request'
+import requests from './requests'
 import Banner from './components/Banner'
 
 
