@@ -10,6 +10,7 @@ const Banner = () => {
         async function fetchData() {
             const request = await axios.get(requests.fetchNetflixOriginals);
             setMovie(
+                //Random movie gets pulled for Banner
                 request.data.results[
                 Math.floor(Math.random() * request.data.results.length)
                 ]
@@ -20,9 +21,25 @@ const Banner = () => {
     }, []);
 
     return (
-        <header>
+        <header className="banner"
+            style={{
+                backgroundSize: "cover",
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+                backgroundPosition: "center center",
+            }}
+        >
 
 
+            <div className="banner__contents">
+                <h1>
+                    {movie?.title || movie?.name || movie?.original_name}
+                </h1>
+                <div className="banner__buttons">
+                    <button className="banner__button">Play</button>
+                    <button className="banner__button">My List</button>
+                </div>
+
+            </div>
         </header>
     )
 }
