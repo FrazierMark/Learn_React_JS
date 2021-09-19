@@ -1,5 +1,5 @@
 {
-  "name": "mapp_app",
+  "name": "netflix_clone_app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.4",
     "firebase": "^9.0.2",
+    "movie-trailer": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-youtube": "^7.13.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
