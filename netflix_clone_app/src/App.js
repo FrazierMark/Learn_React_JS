@@ -1,12 +1,16 @@
-import './App.css';
+import React from 'react';
 import Row from './components/Row'
 import requests from './requests'
 import Banner from './components/Banner'
+import './App.css';
 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"
+      style={{
+      backgroundColor: '#111',
+    }}>
       <Banner />
       <Row title="NETFLIX ORIGINALS" fetchURL={requests.fetchNetflixOriginals} isLargeRow={true} />
       <Row title="Trending Now" fetchURL={requests.fetchTrending} />
