@@ -3,6 +3,7 @@ import Row from './components/Row'
 import requests from './requests'
 import Banner from './components/Banner'
 import './App.css';
+import Nav from './components/Nav';
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
     <div className="App"
       style={{
       backgroundColor: '#111',
-    }}>
+      }}>
+      
+      <Nav />
       <Banner />
       <Row title="NETFLIX ORIGINALS" fetchURL={requests.fetchNetflixOriginals} isLargeRow={true} />
       <Row title="Trending Now" fetchURL={requests.fetchTrending} />
