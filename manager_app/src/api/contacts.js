@@ -3,5 +3,5 @@ import axios from 'axios'
 
 
 export default axios.create({
-    baseURL:"http://localhost:3002/",
+    baseURL:"https://manager-app-3fb73-default-rtdb.firebaseio.com/",
 });
