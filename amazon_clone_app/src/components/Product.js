@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Product.css"
 
-const Product = () => {
+const Product = ({id, title, image, price, rating }) => {
     return (
         <div className="product">
             <div className="Product__info">
@@ -11,6 +11,7 @@ const Product = () => {
                     <strong>{price}</strong>
                 </p>
                 <div className="product__rating">
+                    {/* {create an array of length of the ratings passed and loop through them and render out the star emoji the number of times the ratings passed through the props.} */}
                     {Array(rating)
                     .fill()
                     .map((_, i) => (
@@ -18,7 +19,7 @@ const Product = () => {
                     ))}
                 </div>
             </div>
-            <img src={img} alt="" />
+            <img src={image} alt="" />
             
             <button>Add to Basket</button>
         </div>
