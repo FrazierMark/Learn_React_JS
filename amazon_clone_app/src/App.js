@@ -10,15 +10,16 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <Header />
         <Switch>
           <Route path="/checkout">
-            <Header />
+            
             <Checkout />
           </Route>
 
           {/* Default root always at the bottom */}
           <Route path="/">
-            <Header/>
+            
             <Home />
           </Route>
 
