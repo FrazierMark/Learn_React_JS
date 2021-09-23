@@ -21,8 +21,12 @@ const Checkout = () => {
             <div className="checkout__right">
                 <Subtotal/>
                 <h2>The subtotal</h2>
+
+                
+
+
+
             </div>
-            
         </div>
 
         

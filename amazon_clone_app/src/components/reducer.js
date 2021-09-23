@@ -5,7 +5,8 @@ export const initialState = {
   };
   
   // Selector
-  export const getBasketTotal = (basket) => 
+export const getBasketTotal = (basket) =>
+      //reduce() maps through basket and tallies total
     basket?.reduce((amount, item) => item.price + amount, 0);
   
   const reducer = (state, action) => {
