@@ -33,7 +33,7 @@ export const initialState = {
   
         } else {
           console.warn(
-            `Cant remove product (id: ${action.id}) as its not in basket!`
+            `Can't remove product (id: ${action.id}) as its not in basket!`
           )
         }
   

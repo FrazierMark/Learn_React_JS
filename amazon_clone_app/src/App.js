@@ -4,22 +4,28 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "./components/Checkout";
+import Login from "./components/Login";
 
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <Header />
+        
         <Switch>
+
+        <Route path="/login">
+            <Login />
+          </Route>
+
           <Route path="/checkout">
-            
+            <Header />
             <Checkout />
           </Route>
 
           {/* Default root always at the bottom */}
           <Route path="/">
-            
+            <Header />
             <Home />
           </Route>
 
