@@ -11,30 +11,31 @@ import { useStateValue } from "./components/StateProvider";
 
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{ }, dispatch] = useStateValue();
+  
 
-  useEffect(() => {
-    // once app loads, code fires... 
-    auth.onAuthStateChanged(authUser => {
-      console.log('User>>', authUser);
+useEffect(() => {
+  // will only run once when the app component loads...
 
-      if (authUser) {
-        //if user is logged IN, dispatch takes user info and holds it in state/context (sets user)
+  auth.onAuthStateChanged((authUser) => {
+    console.log("THE USER IS >>> ", authUser);
 
-        dispatch({
-          type: 'SET_USER',
-          user: authUser
-        })
-        
-      } else {
-        //user is logged out
-        dispatch({
-          type: "SET_USER",
-          user: null
-        })
-      }
-    })
-  }, [])
+    if (authUser) {
+       //if user is logged IN, dispatch takes user info and holds it in data-layer (firebase) (sets user)
+
+      dispatch({
+        type: "SET_USER",
+        user: authUser,
+      });
+    } else {
+      // the user is logged out
+      dispatch({
+        type: "SET_USER",
+        user: null,
+      });
+    }
+  });
+}, []);
 
   return (
     <Router>
