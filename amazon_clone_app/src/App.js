@@ -9,7 +9,11 @@ import { useEffect } from "react";
 import { auth } from "./components/firebase";
 import { useStateValue } from "./components/StateProvider";
 import Payment from "./components/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+//From stripe - API publishable key
+const promise = loadStripe("pk_test_51JeQ98Lu7BrQj7NTn6019T0dDhs84NPyLyfvhJjJLXFJE1KrA5CwGJ5iHWTYexlKDiAYzsxpXhv8gzmgPI7qOAlO00sfwR18p4");
 
 function App() {
   const [{ }, dispatch] = useStateValue();
@@ -55,7 +59,9 @@ useEffect(() => {
 
           <Route path="/payment">
             <Header />
+            <Elements stripe={promise}>
             <Payment />
+            </Elements>
           </Route>
 
           {/* Default root always at the bottom */}
