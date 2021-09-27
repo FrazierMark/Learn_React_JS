@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CheckoutProduct from './CheckoutProduct';
 import "./Payment.css";
 import { useStateValue } from './StateProvider';
@@ -6,17 +6,39 @@ import { Link } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from './reducer';
 import CurrencyFormat from 'react-currency-format';
+import axios from 'axios';
 
 const Payment = () => {
     const [{ basket, user }, dispatch] = useStateValue();
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
+    const [succeeded, setSucceeded] = useState(false);
+    const [processing, setProcessing] = useState("");
+    const [clientSecret, setClientSecret] = useState(true);
+
+    useEffect(() => {
+        //generate the stripe secret key
+
+        const getClientSecret = async () => {
+        const response = await axios({
+        method: "post",
+        // Stripe expects the total in a currencies subunits
+        url: `/payment/create?total=${getBasketTotal(basket) * 100}`
+    })
+}
+
+getClientSecret();
+}, [basket]);
 
     const stripe = useStripe();
     const elements = useElements();
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         //Implement stripe processing
+        e.preventDefault(); // prevents refreshing
+        setProcessing(true); // once button hit, blocks you from clicking more than once
+
+        // const payload = await stripe
     };
 
     const handleChange = (e) => {
@@ -86,7 +108,13 @@ const Payment = () => {
                                     thousandSeperator={true}
                                     prefix={"$"}
                                 />
+                                <button disabled={processing || disabled || succeeded}>
+                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                </button>
                             </div>
+
+                            {/* {ERRORS} */}
+                            {error && <div>{error} </div>}
                         </form>
 
                     </div>
