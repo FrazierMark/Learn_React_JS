@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import { useEffect } from "react";
 import { auth } from "./components/firebase";
 import { useStateValue } from "./components/StateProvider";
+import Payment from "./components/Payment";
 
 
 function App() {
@@ -50,6 +51,11 @@ useEffect(() => {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
 
           {/* Default root always at the bottom */}
