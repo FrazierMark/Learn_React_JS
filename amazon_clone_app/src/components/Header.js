@@ -20,7 +20,7 @@ const Header = () => {
         <div className="header">
             <Link to='/'> 
             <img className="header__logo"
-                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" 
+                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"  //https://pngimg.com/uploads/amazon/amazon_PNG11.png
                 alt=""
                 />
             </Link>
