@@ -54,6 +54,10 @@ const Payment = () => {
             setError(null);
             setProcessing(false);
 
+            dispatch({
+                type: "EMPTY_BASKET"
+            })
+
             // send user to order page after payment submission
             history.replace("/orders")
         })
