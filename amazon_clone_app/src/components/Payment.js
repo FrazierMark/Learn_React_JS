@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { getBasketTotal } from './reducer';
 import CurrencyFormat from 'react-currency-format';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const Payment = () => {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -15,6 +16,7 @@ const Payment = () => {
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
     const [clientSecret, setClientSecret] = useState(true);
+    const history = useHistory();
 
     useEffect(() => {
         //generate the stripe secret key that allows us to charge a customer appropriatley
@@ -50,6 +52,7 @@ getClientSecret();
             setError(null);
             setProcessing(false);
 
+            // send user to order page after payment submission
             history.replace("/orders")
         })
 
