@@ -50,7 +50,8 @@ useEffect(() => {
         <Switch>
 
         <Route path="/orders">
-            <Orders />
+          <Header />
+          <Orders />
           </Route>
 
           <Route path="/checkout">

@@ -8,6 +8,7 @@ import { getBasketTotal } from './reducer';
 import CurrencyFormat from 'react-currency-format';
 import axios from './axios';
 import { useHistory } from 'react-router';
+import { db } from './firebase';
 
 const Payment = () => {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -49,6 +50,18 @@ const Payment = () => {
             }
         }).then(({ paymentIntent }) => {
             //paymentIntent = payment confirmation
+
+            // insert into db collection of users, find user, to their orders, create document with paymentintent.id and set to basket, amount, and created
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
 
             setSucceeded(true);
             setError(null);
