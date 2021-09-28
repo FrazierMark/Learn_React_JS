@@ -8,7 +8,8 @@ const Home = () => {
       <div className="home__container">
         <img
           className="home__image"
-          src="https://i.imgur.com/SYHeuYM.jpg"
+            src="https://i.imgur.com/SYHeuYM.jpg
+          "
           alt=""
         />
 
