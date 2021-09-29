@@ -20,12 +20,15 @@ const Header = () => {
             <Menu>
             {cars && cars.map((car, index) => (
                     <a key={index} href="#">{car}</a>
-                ))}
+            ))}
+                <a href="#">Solar Panels</a>
+                <a href="#">Solar Roof</a>
                 
             </Menu>
+            
             <RightMenu>
                 <a href="#">Shop</a>
-                <a href="#">Tesla  Account</a>
+                <a href="#">Tesla Account</a>
                 <CustomMenu onClick={() => setBurgerStatus(true)}/>
             </RightMenu>
 
@@ -75,7 +78,7 @@ const Menu = styled.div`
 
 
     a {
-        font-weight: 600;
+        font-weight: 450;
         text-transform: uppercase;
         padding: 0 10px;
         flex-wrap: no-wrap;
@@ -91,7 +94,7 @@ const RightMenu = styled.div`
     align-items: center;
 
     a {
-        font-weight: 600;
+        font-weight: 450;
         text-transform: uppercase;
         margin-right: 10px;
     }
@@ -124,7 +127,7 @@ const BurgerNav = styled.div`
         border-bottom: 1px solid rgba(0, 0, 0, .2);
 
         a {
-            font-weight: 600;
+            font-weight: 500;
         }
     }
 `
