@@ -1,7 +1,8 @@
 import { ratingClasses } from '@mui/material';
 import React from 'react'
 import "./Product.css"
-import {useStateValue} from "./StateProvider"
+import { useStateValue } from "./StateProvider"
+import styled from 'styled-components';
 
 const Product = ({ id, title, image, price, rating }) => {
     const [state, dispatch] = useStateValue();
@@ -39,9 +40,14 @@ const Product = ({ id, title, image, price, rating }) => {
             </div>
             <img src={image} alt="" />
             
-            <button onClick={addToBasket}>Add to Basket</button>
+            <Button onClick={addToBasket}>Add to Basket</Button>
         </div>
     )
 }
 
 export default Product;
+
+
+const Button = styled.button`
+    cursor: pointer;
+`

@@ -9,6 +9,7 @@ import CurrencyFormat from 'react-currency-format';
 import axios from './axios';
 import { useHistory } from 'react-router';
 import { db } from './firebase';
+import styled from 'styled-components';
 
 const Payment = () => {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -145,9 +146,9 @@ const Payment = () => {
                                     thousandSeperator={true}
                                     prefix={"$"}
                                 />
-                                <button disabled={processing || disabled || succeeded}>
+                                <Button disabled={processing || disabled || succeeded}>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
-                                </button>
+                                </Button>
                             </div>
 
                             {/* {ERRORS} */}
@@ -165,3 +166,8 @@ const Payment = () => {
 }
 
 export default Payment;
+
+
+const Button = styled.button`
+    cursor: pointer;
+`

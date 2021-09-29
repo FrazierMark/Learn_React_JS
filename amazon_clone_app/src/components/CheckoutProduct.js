@@ -2,6 +2,7 @@
 import React from 'react';
 import './CheckoutProduct.css'
 import { useStateValue } from "./StateProvider";
+import styled from 'styled-components';
 
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
     const [{ basket }, dispatch] = useStateValue();
@@ -32,7 +33,7 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
                     ))}
                 </div>
                 {!hideButton && (
-                    <button onClick={removeFromBasket}>Remove from Basket</button>
+                    <Button onClick={removeFromBasket}>Remove from Basket</Button>
                 )}
             </div>
         </div>
@@ -40,3 +41,8 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
 }
 
 export default CheckoutProduct
+
+
+const Button = styled.button`
+    cursor: pointer;
+`

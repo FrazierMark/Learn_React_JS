@@ -3,6 +3,7 @@ import "./Checkout.css"
 import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal'
 import { useStateValue } from "./StateProvider";
+import styled from 'styled-components';
 
 const Checkout = () => {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -43,3 +44,5 @@ const Checkout = () => {
 }
 
 export default Checkout
+
+
